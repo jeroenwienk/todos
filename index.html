@@ -5,6 +5,23 @@
   <title>Main</title>
 </head>
 <body>
-  Hello
+<div>
+  <h2>Todo's</h2>
+  <ul id="todos">
+
+  </ul>
+</div>
 </body>
+<script>
+  const electron = require('electron');
+  const { ipcRenderer } = electron;
+
+  ipcRenderer.on('todo:add', (event, data) => {
+    const li = document.createElement('li');
+    const text = document.createTextNode(data);
+    li.appendChild(text);
+    document.getElementById('todos').appendChild(li)
+  });
+
+</script>
 </html>
