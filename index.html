@@ -23,5 +23,9 @@
     document.getElementById('todos').appendChild(li)
   });
 
+  ipcRenderer.on('todo:clear', (event, data) => {
+    document.getElementById('todos').innerHTML = '';
+  })
+
 </script>
 </html>
